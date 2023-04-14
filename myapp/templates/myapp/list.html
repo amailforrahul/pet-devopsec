@@ -1,0 +1,61 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<h3>{{msg}}</h3>
+<h2>List of Pets</h2>
+<table class="table table-striped">
+    <thead>
+    <td>ID</td>
+    <td>PET TYPE</td>
+    <td>PET BREED</td>
+    <td>PET CITY</td>
+    <td>PET BLOODLINE</td>
+    <td>TOTAL</td>
+    <td>YET AVAILABLE</td>
+    <td>PRICE</td>
+    <td>DATE</td>
+    <td>TIME</td>
+
+    </thead>
+
+    {% for row in pet_list %}
+    <tr>
+        <td>{{row.id }}</td>
+        <td>{{row.pet_type}}</td>
+        <td>{{row.pet_breed}}</td>
+        <td>{{row.pet_location}}</td>
+        <td>{{row.pet_bloodline}}</td>
+        <td>{{row.pet_nos}}</td>
+        <td>{{row.pet_rem}}</td>
+        <td>{{row.pet_price}}</td>
+        <td>{{row.date}}</td>
+        <td>{{row.time}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<form action="{% url 'bookings' %}" method="post">
+    <h3>Select Pet ID From Above List To Book</h3>
+    {% csrf_token %}
+    <div class="col-auto">
+        <label for="example-email-input" class="col-2 col-form-label">Pet ID</label>
+        <div class="col-5">
+            <input name='pet_id' class="form-control" type="number" id="example-email-input">
+        </div>
+    </div>
+    <div class="col=auto">
+        <label for="example-email-input" class="col-2 col-form-label">Number of Pets</label>
+        <div class="col-5">
+            <input name='no_pets' class="form-control" type="number">
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="pull-right">
+        <button type="submit" class="btn btn-primary float-left">Book My Pet</button>
+    </div>
+
+
+    {{error}}
+
+</form>
+
+{% endblock %}

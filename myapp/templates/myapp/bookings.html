@@ -1,0 +1,73 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<h2 style="align-items: center;">Booking Confirmations</h2>
+<form action="{% url 'home' %}" method="post">
+
+    <div style="
+            display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+">
+
+
+
+
+    {% csrf_token %}
+    <h2>Your PET booking has been confirmed!</h2>
+    <h2>Thank you!</h2>
+
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Booking details
+    </button>
+</div>
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Booking Details</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div id="printTable" class="modal-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>PET TYPE:</b> {{book.pet_type}}</li>
+                        <li class="list-group-item"><b>PET BREED:</b> {{book.pet_breed}}</li>
+                         <li class="list-group-item"><b>PET LOCATION:</b> {{book.pet_location}}</li>
+
+                        <li class="list-group-item"><b>PET BLOODLINE:</b> {{book.pet_bloodline}}</li>
+
+                        <li class="list-group-item"><b>NUMBERS:</b> {{book.pet_nos}}</li>
+                        <li class="list-group-item"><b>PET PRICES:</b> {{book.pet_price}}</li>
+                        <li class="list-group-item"><b>COST:</b> {{cost}}</li>
+                        <li class="list-group-item"><b>DATE:</b> {{book.date}}</li>
+                        <li class="list-group-item"><b>TIME:</b> {{book.time}}</li>
+                    </ul>
+
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+<!--    <div class="pull-right">-->
+<!--        <button type="submit" class="btn btn-primary float-right">OK</button>-->
+<!--        <a class="btn btn-primary btn-s" name="submit" href="{% url 'download-pdf' 1 %}" method="post"><span class="glyphicon glyphicon-log-out"></span></a></td>-->
+<!--    </div>-->
+
+
+</form>
+
+{% endblock %}
