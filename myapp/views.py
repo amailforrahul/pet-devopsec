@@ -1,3 +1,4 @@
+""" views documentation"""
 from django.shortcuts import render
 from decimal import Decimal
 

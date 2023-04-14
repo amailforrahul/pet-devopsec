@@ -1,3 +1,4 @@
+""" apps doc file"""
 from django.apps import AppConfig
 
 
