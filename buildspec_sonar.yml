@@ -3,7 +3,7 @@ phases:
   install:
     runtime-versions:
       java: corretto17
-      python: 3.11
+      python: 3.9
   pre_build:
     commands:
       - pip install --upgrade pip
