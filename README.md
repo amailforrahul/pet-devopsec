@@ -1,1 +1,1 @@
-# PET Booking Application DevOpSec
+# PET Booking Application DevSecOps
