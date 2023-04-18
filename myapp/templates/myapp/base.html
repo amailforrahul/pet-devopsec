@@ -28,7 +28,7 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="{% url 'findpet' %}">Search Pet</a>
-                <a class="nav-item nav-link" href="{% url 'seebookings' %}">Pet Bookings</a>
+                <a class="nav-item nav-link" href="{% url 'seebookings' %}">View Bookings</a>
                 {% if request.user.is_active %}
                 <a class="nav-item nav-link " href="{% url 'signout' %}">Sign out</a>
                 {% else %}
