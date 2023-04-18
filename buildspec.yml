@@ -10,6 +10,7 @@ phases:
     pre_build:
         commands:
             - python --version
+            - pytest
             - pylint $CODEBUILD_SRC_DIR/*.py
             - pylint $CODEBUILD_SRC_DIR/myproject/*py
 artifacts:

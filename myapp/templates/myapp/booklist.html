@@ -41,7 +41,8 @@
     {% endfor %}
 </table>
 
-<div class="form-container">
+<div class="grid-container">
+<div class="grid-child">
     <form action="{% url 'cancellings' %}" method="post">
         <!-- First form code here -->
         <h3>Choose PET ID from above list to Cancel Booking</h3>
@@ -65,7 +66,7 @@
 <br>
 <br>
 <br>
-<div class="form-container">
+<div class="grid-child">
     <form action="{% url 'deletebooking' %}" method="post">
         <!-- Second form code here -->
         <h3>Choose PET ID from above list to Delete Booking</h3>
@@ -86,5 +87,6 @@
         {{error}}
     </form>
 </div>
+    </div>
 
 {% endblock %}

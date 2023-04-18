@@ -33,7 +33,7 @@ def findpet(request):
         pet_breed_r = request.POST.get('pet_breed')
         pet_location_r = request.POST.get('pet_location')
 
-        pet_list = pet.objects.filter(pet_type=pet_type_r, pet_breed=pet_breed_r, pet_location=pet_location_r)
+        pet_list = pet.objects.filter(pet_type__icontains=pet_type_r, pet_breed__icontains=pet_breed_r, pet_location__icontains=pet_location_r)
         if pet_list:
             return render(request, 'myapp/list.html', locals())
         else:
